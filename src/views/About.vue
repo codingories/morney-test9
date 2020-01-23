@@ -5,8 +5,5 @@
 </template>
 
 <style lang="scss">
-  @import "~@/assets/styles/test.scss";
-  body{
-    background: green;
-  }
+
 </style>
