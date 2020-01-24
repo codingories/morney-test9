@@ -1,6 +1,8 @@
 <template>
-  <div>Statistics
-    <Nav/>
+  <div>
+    <Layout>
+      Statistics.vue
+    </Layout>
   </div>
 </template>
 
@@ -10,6 +12,3 @@
   }
 </script>
 
-<style lang="scss" scoped>
-
-</style>
