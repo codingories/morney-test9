@@ -1,10 +1,15 @@
 <template>
-  <div>Money</div>
+  <div>
+    Money
+    <Nav />
+  </div>
+
 </template>
 
 <script lang="ts">
+
   export default {
-    name: "money"
+    name: "money",
   }
 </script>
 
