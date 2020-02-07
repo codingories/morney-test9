@@ -1,9 +1,9 @@
 <template>
   <Layout class-prefix="layout">
     <NumberPad/>
-    <Types :xxx="33334" />
+    <Types/>
     <Notes/>
-    <Tags/>
+    <Tags :data-source="tags"/>
   </Layout>
 </template>
 
@@ -16,6 +16,11 @@
   export default {
     name: "money",
     components: {Tags, Notes, Types, NumberPad},
+    data(){
+      return {
+        tags: ["衣","食","住","行"]
+      }
+    }
   }
 </script>
 
