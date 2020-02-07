@@ -2,36 +2,68 @@
   <div>
     <ul class="types">
       <li :class="type === '-' && 'selected'"
-      @click="selectType('-')">支出</li>
+          @click="selectType('-')">支出
+      </li>
       <li :class="type === '+' && 'selected'"
-      @click="selectType('+')">收入</li>
+          @click="selectType('+')">收入
+      </li>
     </ul>
   </div>
 </template>
 
-<script lang="js">
-  export default {
-    name: "Types",
-    props: ['xxx'],
-    data() {
-      return {
-        type: '-' // '-'表示支出.'+'表示收入
-      }
-    },
-    mounted() {
-      console.log(this.xxx)
-    },
-    methods: {
-      selectType(type) { // type 只能是 '-' 和 '+' 中的一个
-        if(type !== '-' && type !== '+'){
-          throw new Error('type is unknown')
-        }
-        this.type = type
-      }
+<script lang="ts">
+  import Vue from "vue"
+  import {Component} from "vue-property-decorator"
+
+  @Component({
+    props: {
+      propMessage: String
     }
+  }) // 如果如果这样写，就表示Class就有一个propMessage的props，类型为String
+  export default class Types extends Vue {
+    type = "-"  // '-'表示支出.'+'表示收入
+    helloMsg = "Hello, " + this.propMessage;
+
+    selectType(type: string) { // type 只能是 '-' 和 '+' 中的一个
+      if (type !== "-" && type !== "+") {
+        throw new Error("type is unknown")
+      }
+      this.type = type
+    }
+
+    created() {}
+
+    mounted() {}
   }
+
+
+  // export default {
+  //   name: "Types",
+  //   props: ['xxx'],
+  //   data() {
+  //     return {
+  //       type: '-' // '-'表示支出.'+'表示收入
+  //     }
+  //   },
+  //   mounted() {
+  //     console.log(this.xxx)
+  //   },
+  //   methods: {
+  //     selectType(type) { // type 只能是 '-' 和 '+' 中的一个
+  //       if(type !== '-' && type !== '+'){
+  //         throw new Error('type is unknown')
+  //       }
+  //       this.type = type
+  //     }
+  //   }
+  // }
 </script>
 
+// import Vue from 'vue'
+//
+// export default class Types extends Vue {
+//   type = '-'
+// }
 
 
 <style lang="scss" scoped>
@@ -40,6 +72,7 @@
     display: flex;
     text-align: center;
     font-size: 24px;
+
     > li {
       width: 50%;
       height: 64px;
@@ -47,6 +80,7 @@
       justify-content: center;
       align-items: center;
       position: relative;
+
       &.selected::after {
         content: '';
         position: absolute;
