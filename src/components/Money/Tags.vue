@@ -35,11 +35,9 @@
 
     create() {
       const name = window.prompt("请输入标签名")
-      console.log(name)
       if (name === "") {
         window.alert("标签名不能为空")
       } else if (this.dataSource) {
-        // this.dataSource.push(name!); // 不能改外部数据!
         this.$emit("update:dataSource", [...this.dataSource, name])
       }
     }
