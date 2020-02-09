@@ -1,3 +1,5 @@
+import createId from '@/lib/createId'
+
 const localStorageKeyName = 'tagList'
 
 type Tag = {
@@ -26,7 +28,9 @@ const tagListModel:TagListModel = {
   create(name: string){
     const names = this.data.map(item => item.name)
     if(names.indexOf(name) >= 0 ){ return 'duplicated'; }
-    this.data.push({id: name, name: name});
+    const id = createId().toString();
+    this.data.push({id, name: name});
+    window.localStorage.setItem('_idMax',id)
     this.save()
     return 'success';
   },
