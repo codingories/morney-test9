@@ -7,6 +7,7 @@ import Nav from '@/components/Nav.vue'
 import Layout from '@/components/Layout.vue'
 import Icon from '@/components/Icon.vue'
 import tagListModel from '@/model/tagListModel'
+import recordListModel from '@/model/recordListModel'
 
 Vue.config.productionTip = false
 
@@ -14,7 +15,15 @@ Vue.component('Nav',Nav)
 Vue.component('Layout',Layout)
 Vue.component('Icon',Icon)
 
+
+// record store
+window.recordList = recordListModel.fetch()
+window.createRecord = (record: RecordItem)=>recordListModel.create(record);
+// tag store
 window.tagList = tagListModel.fetch();
+window.findTag = (id:string) => {
+  return window.tagList.filter(t => t.id === id)[0]
+}
 window.createTag = (name:string)=>{
   const message = tagListModel.create(name) // 知识点2. 写的时候要用tagListModel来写
   // 简化知识点1和知识点2，也就是最小知识原色
@@ -25,8 +34,12 @@ window.createTag = (name:string)=>{
   }
 }
 
-new Vue({
-  router,
-  store,
-  render: h => h(App)
-}).$mount('#app')
+window.removeTag = (id: string)=> {
+  return tagListModel.remove(id);
+}
+window.updateTag = (id: string, name: string) => {
+  return tagListModel.update(id, name)
+}
+
+
+new Vue({router, store, render: h => h(App)}).$mount('#app')

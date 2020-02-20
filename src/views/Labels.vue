@@ -16,7 +16,6 @@
 
   import Vue from "vue"
   import {Component} from "vue-property-decorator"
-  import tagListModel from "@/model/tagListModel"
   import Button from "@/components/Button.vue"
 
 
