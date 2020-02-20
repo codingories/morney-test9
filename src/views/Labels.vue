@@ -24,17 +24,11 @@
     components: {Button}
   })
   export default class Labels extends Vue {
-    tags = window.tagList
-
+    tags = window.tagList // 知识点1. 读的时候要用tags读
     createTag() {
       const name = window.prompt("请输入标签名")
       if (name) {
-        const message = tagListModel.create(name)
-        if (message === "duplicated") {
-          window.alert("标签名重复了")
-        } else if (message === "success") {
-          window.alert("添加成功")
-        }
+        window.createTag(name);
       }
     }
   }
