@@ -20,14 +20,17 @@
     computed: {
       // return this.$store.fetchTags()
       tagList(){
-        // TODO
-        return []
+        return this.$store.state.tagList;
       }
     }
   })
   export default class Tags extends Vue {
     // @Prop({required: true}) readonly dataSource!: string[]
     selectedTags: string[] = []
+
+    created() {
+      this.$store.commit('fetchTags')
+    }
 
     toggle(tag: string) {
       const index = this.selectedTags.indexOf(tag)
@@ -44,8 +47,7 @@
       if (!name) {
         window.alert("标签名不能为空")
       }
-      // TODO
-      // store.createTag(name)
+      this.$store.commit('createTag', name);
     }
   }
 </script>
