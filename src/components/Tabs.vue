@@ -20,6 +20,10 @@
     @Prop(String)
     classPrefix?: string;
 
+     // js控制css的写法, template中写上 height="48px"
+    // @Prop({type: String, default: '64px'})
+    // height!: string;
+
     liClass(item: DataSourceItem){
       return {
         [this.classPrefix+'-tabs-item']: this.classPrefix,
