@@ -20,7 +20,7 @@ const recordStore = {
   // 这里没有函数，所以是全局的this,也就是window,给它一个recordStore的名字即可
   createRecord(record: RecordItem) {
     const record2: RecordItem = clone(record)
-    record2.createdAt = new Date()
+    record2.createdAt = new Date().toISOString()
     this.recordList && this.recordList.push(record2)
     recordStore.saveRecords()
   },

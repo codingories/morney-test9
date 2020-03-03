@@ -1,8 +1,7 @@
 <template>
   <Layout class-prefix="layout">
     <NumberPad :value.sync="record.amount" @submit="saveRecord"/>
-    <Types :value.sync="record.type"/>
-    <tabs :dta-source="recordTypeList" :value.sync="record.type"/>
+    <tabs :data-source="recordTypeList" :value.sync="record.type"/>
     <div class="notes">
       <FormItem field-name="备注"
                 placeholder="在这里输入备注"
@@ -62,7 +61,7 @@
   }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
   .layout-content {
     display: flex;
     flex-direction: column-reverse;
