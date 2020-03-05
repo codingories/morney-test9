@@ -34,11 +34,11 @@
     components: {Tabs}
   })
   export default class Statistics extends Vue {
-    static tagString(tags: Tag[]){
+    tagString(tags: Tag[]){
       return tags.length === 0 ? '无': tags.join(',')
     }
 
-    static beautify(string: string) {
+    beautify(string: string) {
       const day = dayjs(string);
       const now = dayjs();
       if(day.isSame(now, 'day')){
@@ -51,7 +51,7 @@
         return day.format('M月D日');
       } else {
         return day.format( 'YYYY年M月D日' )
-      }
+    }
   }
 
     get recordList(){
