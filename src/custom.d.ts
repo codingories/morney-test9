@@ -23,18 +23,8 @@ type TagListModel = {
 
 type RootState = {
   recordList: RecordItem[],
+  createRecordError: Error | null,
   tagList: Tag[],
   currentTag?: Tag
 }
 
-// interface Window {
-//   // store: {
-//   //   tagList: Tag[],
-//   //   createTag: (name: string) => void,
-//   //   removeTag: (id:string) => boolean,
-//   //   findTag: (id: string) => Tag | undefined,
-//   //   updateTag: TagListModel['update'],
-//   //   recordList: RecordItem[];
-//   //   createRecord: (record: RecordItem) => void
-//   // }
-// }
