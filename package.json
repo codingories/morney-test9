@@ -36,6 +36,7 @@
     "lint-staged": "^9.5.0",
     "sass": "^1.23.7",
     "sass-loader": "^8.0.0",
+    "serve": "^11.3.0",
     "svgo-loader": "^2.2.1",
     "typescript": "~3.7.5",
     "vue-template-compiler": "^2.6.10"

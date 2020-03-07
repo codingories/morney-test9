@@ -81,7 +81,6 @@ const store = new Vuex.Store({
       // window.localStorage.setItem('_idMax',id)
       // state.saveTags()
       store.commit('saveTags')
-      window.alert('添加成功')
     },
     saveTags(state){
       window.localStorage.setItem('tagList', JSON.stringify(state.tagList))
