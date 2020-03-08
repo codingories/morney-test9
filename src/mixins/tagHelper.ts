@@ -9,8 +9,10 @@ const map: { [key: string]: string } = {
 export class TagHelper extends Vue {
     createTag() {
       let name = window.prompt("请输入标签名")
-      if(name){
-        name = name.replace(/^\s*|\s*$/g,"")
+      if (name === null) {
+        return
+      } else {
+        name = name.replace(/^\s*|\s*$/g, '')
       }
       if (!name) {
         return window.alert("标签名不能为空")
@@ -18,6 +20,8 @@ export class TagHelper extends Vue {
       this.$store.commit('createTag', name);
       if (this.$store.state.createTagError){
         window.alert(map[this.$store.state.createTagError.message] || '未知错误')
+      }else {
+        window.alert('创建标签成功')
       }
     }
 }
