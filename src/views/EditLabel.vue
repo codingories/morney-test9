@@ -55,6 +55,8 @@
 
     remove() {
       if (this.tag) {
+        console.log('=====')
+        console.log(this.tag.id)
         this.$store.commit('remove', this.tag.id)
       }
     }
